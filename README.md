@@ -2,8 +2,9 @@
 
 A GroupMe Chatbot named Tyrone used for managing projects between Students writen in Java.
 
-
-
+<h2>Features</h2>
+- Allows creating new Tasks
+- Trackes the time remaining for the tasks
 
 <br>GroupMe: https://groupme.com/en-US/
 <br>Sqlite: https://www.sqlite.org/index.html
