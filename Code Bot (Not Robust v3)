@@ -1,0 +1,47 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;//imported scanner
+// Sam Gobeyn and James Morris
+public class Bot {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);// declared new scanner
+        ArrayList<String>rolesList = new ArrayList<>();
+        System.out.println("Hi my name is Tyrone and I am your Bot! To name your project type in: new project name = (your project name here)\n");// Bot introduces itself
+        String namePhrase = "new project name =";
+        String assignmentNameInput = s.nextLine();//Stores assignment name
+        if (assignmentNameInput.toLowerCase().contains(namePhrase.toLowerCase())) {
+            String assignmentName = assignmentNameInput.substring(assignmentNameInput.indexOf("=") + 2);//Parameters
+            System.out.println("Project " + assignmentName + " has been created");
+            System.out.println("To give your project a due date, type in: new " + assignmentName + " due date = (mm/dd/yyyy)"); //Prompts user for assignment due date
+            String datePhrase = "new " + assignmentName + " due date =";
+            String dateInput = s.nextLine();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            try {
+                Date date = dateFormat.parse(dateInput.substring(dateInput.indexOf("=") + 2)); // check to see if they entered date in correct format
+            } catch (ParseException e){
+                System.out.println(" Please input date in correct format");
+            }
+            if (dateInput.toLowerCase().contains(datePhrase.toLowerCase())) { // if statement to detect if they entered in a date phrase
+                String officialDueDate = dateInput.substring(dateInput.indexOf("=") + 2);
+                System.out.println(assignmentName + " has been given a due date of " + officialDueDate);
+                System.out.println("For more commands to add to your project type in help.Tyrone");
+            }
+
+
+        }
+        String generalScanner = s.nextLine(); // general scanner that picks up certain key phrases
+        if (generalScanner.toLowerCase().equals("Tyrone.Member")){
+        }
+    }
+}
+
+
+
+
+
+
+
+
