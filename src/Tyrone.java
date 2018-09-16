@@ -30,7 +30,7 @@ public class Tyrone {
         out.close();
 
         connection.getInputStream();
-    }public static void postImage() throws Exception{
+    }public static void postImage(String message) throws Exception{
         URL groupMeURL = new URL("https://api.groupme.com/v3/bots/post?token=J2j1gvULxeVlhPo7axHTYGDUirPUQ7N6kGgtmcWI");
         HttpURLConnection connection = (HttpURLConnection) groupMeURL.openConnection();
 
@@ -38,7 +38,8 @@ public class Tyrone {
 
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("bot_id", botID);
-        parameters.put("attachments", String.format("[{\"type\": \"image\",%n\"url\":\"https://i.imgur.com/WBBXEzD.png?fb\"%n}]"));
+        parameters.put("text", message);
+        parameters.put("picture_url", "https://i.imgur.com/WBBXEzD.png?fb");
 
         // Send parameters to GroupMe
         connection.setDoOutput(true);
@@ -48,7 +49,6 @@ public class Tyrone {
         out.close();
 
         connection.getInputStream();
-
     }
 
 }

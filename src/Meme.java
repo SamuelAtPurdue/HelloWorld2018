@@ -15,19 +15,15 @@ import java.util.Random;
  */
 public class Meme {
     public Meme(){
-        BufferedImage bufImage;
+        BufferedImage shialaBufferedImage;
         File file = new File("C:\\Users\\agent\\IdeaProjects\\HelloWorld2018\\src\\com\\hello\\Meme\\motivation.jpg");
-      /*System.out.println(file.canRead());
-        System.out.println(file.isDirectory());
-        System.out.println(file.isFile());
-        System.out.println(file.exists());
-      */Random random = new Random(LocalDateTime.now().toEpochSecond(OffsetDateTime.now().getOffset()));
+        Random random = new Random(LocalDateTime.now().toEpochSecond(OffsetDateTime.now().getOffset()));
         //System.out.println(random.nextInt(100));
         try {
 
-            bufImage = ImageIO.read(file);
-
-        }catch (IOException except) {
+            shialaBufferedImage = ImageIO.read(file);
+            Tyrone.postImage("Shia");
+        }catch (Exception except) {
             System.err.print("Failed to read file: Memes too dank.");
             except.printStackTrace();
         }

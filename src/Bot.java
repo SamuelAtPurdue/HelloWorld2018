@@ -13,7 +13,7 @@ public class Bot {
     private static final String MEME_KEY = "@tyrone !meme";
     private static final String PROJ_KEY = "@tyrone !proj";
     private static final String DATE_KEY = "@tyrone !date";
-    private static final String SPAM_KEY = "@tyrone !spam";
+    //private static final String SPAM_KEY = "@tyrone !spam";
 
 
     private static SqlConnect sqlConnect = new SqlConnect();
@@ -42,8 +42,8 @@ public class Bot {
                 return true;
             case DATE_KEY:
                 return true;
-            case SPAM_KEY:
-                return true;
+            //case SPAM_KEY:
+                //return true;
             default:
                 return false;
         }
@@ -109,15 +109,16 @@ public class Bot {
                 case MEME_KEY:
                     try{
                         Tyrone.say("Memes on the way");
+                        Meme meme = new Meme();
                     }catch(Exception except){
                         System.err.println("Failed to deliver the memes");
                     }
-                case SPAM_KEY:
-                    try {
-                        Tyrone.say("@tyrone !spam");
-                    }catch (Exception e){
+//                case SPAM_KEY:
+//                    try {
+//                        Tyrone.say("@tyrone !spam");
+//                    }catch (Exception e){
 
-                    }
+                    //}
             }
         }
     }
@@ -127,7 +128,7 @@ public class Bot {
      */
     private static void usage() {
         try {
-            Tyrone.say(String.format("COMMANDS%n\t!task\t\t\tAdds task to the TODO list%n\t!help\t\t\tDisplays Help Screen%n\t!todo\t\t\tDisplays TODO list%n\t!meme\t\t\tDisplays Memes%n"));
+            Tyrone.say(String.format("COMMANDS%n\t!proj\t\t\tAdds task to the TODO list%n\t!help\t\t\tDisplays Help Screen%n\t!todo\t\t\tDisplays TODO list%n\t!meme\t\t\tDisplays Memes%n"));
 
         } catch (Exception except) {
 

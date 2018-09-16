@@ -40,7 +40,7 @@ public class GroupMeAPI {
 
     public static void main(String[] args) throws Exception {
 
-        Meme meme = new Meme();
+       //Meme meme = new Meme();
         //Tyrone.postImage();
 
         GroupMeAPI api = new GroupMeAPI();
