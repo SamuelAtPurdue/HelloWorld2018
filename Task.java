@@ -18,24 +18,25 @@ public class Task {
     private int progress;           //number from 1-100 to measure percent complete
 
 
-    private final long START;       //start date calculated on initialization
+    private long start;       //start date calculated on initialization
     private final String USER;      //User who created the task
-    private int TASKID;             //Unique taskID calculated on initialization
+    private int taskID;             //Unique taskID calculated on initialization
+    private final int SUPER_ID;
 
 
-    public Task(String taskName, String username, long end){
-        int TASKID = ++nextID;
+    public Task(String taskName, String username, long end, int superID){
+        int taskID = nextID+=1;
         USER = username;
-        this.START = currentDate();
+        this.start = currentDate();
         this.end = end;
         this.name = taskName;
         this.progress = 0;
+        this.SUPER_ID = superID;
 
         this.dumpTask();
     }
-
     public static void createSubtask(Task superTask){
-        Task newSub = new Task("Dinoproject" ,"tempuser", 0);
+        Task newSub = new Task("Dinoproject" ,"tempuser", 0, superTask.getTaskID());
         superTask.add(newSub);
     }
 
@@ -68,43 +69,36 @@ public class Task {
         }
     }
     public void dumpTask(){
-        System.out.printf("Name: %s%nStart: %d%nEnd: %d%nUsername: %s%nTaskID: %d%nProgress: %s%n", this.name, this.START, this.end, this.USER, this.TASKID, this.getProgress());
+        System.out.printf("Name: %s%nStart: %d%nEnd: %d%nUsername: %s%nTaskID: %d%nProgress: %s%n", this.name, this.start, this.end, this.USER, this.taskID, this.getProgress());
     }
     private int calcProgress(){
 
         long now = currentDate();
 
-        long timeSinceStart = now-this.START;
-        long totalTimeToCompletion  = this.end - this.START;
+        long timeSinceStart = now-this.start;
+        long totalTimeToCompletion  = this.end - this.start;
 
         progress = 100*((int) (timeSinceStart/totalTimeToCompletion));
 
         return progress;
     }
-//==========---------- 50%
-//==============------ 70%
-//====================
-    private void sendToDatabase(){
 
-    }
-    public Task retrieveTaskByName(String taskName){
+    public void sendToDatabase(Task sendTask){
         SqlConnect database = new SqlConnect();
-        database.insertTask(new Task("hello","world",170000000));
+        database.insertTask(sendTask);
         database.kill();
-        return database.retrieveTask(taskName);
     }
-//====================
 
     public void setName(String name) {
         this.name = name;
     }
 
     public int getTaskID() {
-        return TASKID;
+        return taskID;
     }
 
     public long getStart() {
-        return START;
+        return start;
     }
 
     public long getEnd() {
@@ -124,6 +118,12 @@ public class Task {
     }
 
     public int getSuperId(){
-        return 0;
+        return this.SUPER_ID;
+    }public void setTaskID(int id){
+        taskID = id;
+    }
+
+    public void setStart(long start) {
+        this.start = start;
     }
 }
