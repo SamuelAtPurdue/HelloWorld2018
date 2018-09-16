@@ -5,8 +5,8 @@ A GroupMe Chatbot named Tyrone used for managing projects between Students write
 
 
 
-GroupMe: https://groupme.com/en-US/
-Sqlite: https://www.sqlite.org/index.html
-Heroroku: https://www.heroku.com
+<br>GroupMe: https://groupme.com/en-US/
+<br>Sqlite: https://www.sqlite.org/index.html
+<br>Heroroku: https://www.heroku.com
 
 dinosaurs are cool.
