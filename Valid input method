@@ -1,0 +1,11 @@
+//method that checks if the user's input is valid 
+  private static boolean isValidInput(String generalScanner){ //Determines if user entered valid command
+        switch (generalScanner){
+            case "t!help": return true;
+            case "t!task": return true;
+            case "t!resource": return true;
+            case "t!todo": return true;
+            case "t!meme": return true;
+        }
+     return false;
+    }
