@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  */
 public class Task {
 
-    static int nextID;              //static in for keeping track of taskIDs
+    static int nextID = 0;              //static in for keeping track of taskIDs
 
     Task[] subtask = new Task[0];   //Array of subtasks
     private long end;               //intended end date
@@ -23,16 +23,8 @@ public class Task {
     private int TASKID;             //Unique taskID calculated on initialization
 
 
-    /**
-     * Static initializer for initializing nextID for keeping track of ids
-     * Sets static ID to 0 only runs on first initialization
-     */
-    static {
-        nextID = 0;
-    }
-
     public Task(String taskName, String username, long end){
-        int TASKID = nextID++;
+        int TASKID = ++nextID;
         USER = username;
         this.START = currentDate();
         this.end = end;
@@ -92,15 +84,17 @@ public class Task {
 //==========---------- 50%
 //==============------ 70%
 //====================
- /*   private void sendToDatabase(){
+    private void sendToDatabase(){
 
     }
-    private Task retrieveTaskByName(String taskName){
-        MongoConnect database = new MongoConnect();
+    public Task retrieveTaskByName(String taskName){
+        SqlConnect database = new SqlConnect();
+        database.insertTask(new Task("hello","world",170000000));
+        database.kill();
         return database.retrieveTask(taskName);
     }
 //====================
-*/
+
     public void setName(String name) {
         this.name = name;
     }
@@ -127,5 +121,9 @@ public class Task {
 
     public String getUSER() {
         return USER;
+    }
+
+    public int getSuperId(){
+        return 0;
     }
 }
