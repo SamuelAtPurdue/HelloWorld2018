@@ -1,0 +1,25 @@
+  if (!isValidInput(generalScanner)){
+            System.out.println(generalScanner + " is an invalid command. For more commands to add to your " +
+                    "project type t!help" );
+        }
+        if (isValidInput(generalScanner)){
+            String output;
+            switch(generalScanner){
+                case "t!help":
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    break;
+                case "t!task":
+                    //should add task to string array of tasks
+                    output = "Task '" + generalScanner.substring(7) + "' added to ToDo List!";
+                case "todo":
+                    //should print array of tasks
+                case "t!meme": output = "Motivational meme coming your way!";
+                    //getMeme();
+            }
+        }
+        }
