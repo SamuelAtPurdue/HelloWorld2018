@@ -13,7 +13,7 @@ public class GroupMeAPI {
     private static Bot tyrone;
 
     public JSONObject getAllGroups() throws Exception {
-        URL groupMeURL = new URL("https://api.groupme.com/v3/groups?token=J2j1gvULxeVlhPo7axHTYGDUirPUQ7N6kGgtmcWI");
+        URL groupMeURL = new URL(""/*URL to Groupme Group*/);
 
         HttpURLConnection connection = (HttpURLConnection) groupMeURL.openConnection();
         connection.setRequestMethod("GET");
@@ -26,7 +26,7 @@ public class GroupMeAPI {
     }
 
     public JSONObject getMostRecentMessage() throws Exception {
-        URL messageURL = new URL("https://api.groupme.com/v3/groups/44097445/messages?token=J2j1gvULxeVlhPo7axHTYGDUirPUQ7N6kGgtmcWI");
+        URL messageURL = new URL(""/*message URL*/);
 
         HttpURLConnection connection = (HttpURLConnection) messageURL.openConnection();
         connection.setRequestMethod("GET");
